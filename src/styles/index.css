@@ -45,7 +45,7 @@ body {
 .testimonial-content::before,
 .testimonial-content::after {
   position: absolute;
-  left: -2%;
+  left: -1rem;
   top: 0;
   bottom: 0;
   width: 2rem;
@@ -58,7 +58,7 @@ body {
   background: #ff6c02;
   border-radius: 50%;
   position: absolute;
-  left: -2%;
+  left: -1rem;
 }
 
 .testimonial-content::after {
@@ -79,7 +79,7 @@ body {
   position: absolute;
   content: "";
   background: #ff6c02;
-  left: -21%;
+  left: -2.2rem;
   bottom: 2px;
   width: 8px;
   height: 8px;
@@ -95,8 +95,32 @@ body {
   flex: 1 1 20%;
   cursor: pointer;
   align-self: center;
-  padding: 3%;
+  padding: 1.5rem;
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
+}
+
+@media only screen and (max-device-width: 1366px) and (orientation: portrait) {
+  .testimonial-wrapper {
+    width: 85%;
+  }
+}
+
+@media screen and (max-device-width: 767px), (max-device-height: 375px) {
+  .testimonial-wrapper {
+    width: 85%;
+  }
+
+  .testimonial-text {
+    font-size: 11px;
+  }
+
+  .testimonial-author {
+    font-size: 9px;
+  }
+
+  .blue-button {
+    font-size: 9px;
+  }
 }
