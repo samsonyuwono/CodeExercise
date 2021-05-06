@@ -110,8 +110,32 @@ body {
 
 .search-form {
   display: flex;
-  justify-content: right;
-  margin: 20px auto;
+  justify-content: flex-end;
+}
+
+.form-submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+/* #searchButton {
+  height: 2em;
+  width: 6em;
+  opacity: 0.8;
+  cursor: pointer;
+} */
+
+.search-input {
+  border: 1px solid #ccc;
+  height: 2em;
+  width: 15%;
+  height: 30px;
+  font-size: 14px;
+  background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
 .search-input:focus {
@@ -121,7 +145,29 @@ body {
   outline: none;
 }
 
+.filter-container {
+  border: 2px solid red;
+
+  width: 100%;
+}
+
+.radio-filter {
+  display: flex;
+  margin: 0 2rem;
+}
+
+.radio-label {
+  color: #595756;
+
+  font-weight: 600;
+}
+
+.clear-filter {
+  justify-content: flex-end;
+}
+
 .media-container {
+  border: 1px solid #cecece;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -138,7 +184,7 @@ body {
 }
 
 .media-card {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   flex: 0 0 29.333333%;
   width: 30%;
   display: block;
@@ -148,8 +194,23 @@ body {
 }
 
 .media-image {
-  width: 70%;
+  width: 90%;
+  object-fit: cover;
+  object-position: center;
 }
+
+.media-title,
+.media-genre {
+  color: #4b4b4b;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.media-genre {
+  font-size: 13px;
+}
+
 @media only screen and (max-device-width: 1366px) and (orientation: portrait) {
   .testimonial-wrapper {
     width: 85%;

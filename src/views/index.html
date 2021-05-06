@@ -42,15 +42,58 @@
     </div>
 
     <div class="wrapper">
-      <form class="search-form">
-        <input
-          class="search-input"
-          type="text"
-          placeholder="Searcch for Movies+Books"
-          id="searchInput"
-        />
-        <button class="seach-button" id="searchButton">Search</button>
-      </form>
+      <div class="filter-container">
+        <select name="genre" id="genre">
+          <option selected disabled>GENRE</option>
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="crime">Crime</option>
+          <option value="comedy">Comedy</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+          <option value="MYSTER">Mystery</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="thriller">Thriller</option>
+          <option value="western">Western</option>
+        </select>
+
+        <select name="year" id="year">
+          <option selected disabled>YEAR</option>
+          <option value="1870">1870</option>
+          <option value="1892">1892</option>
+          <option value="1895">1895</option>
+          <option value="1963">1963</option>
+          <option value="1971">1971</option>
+          <option value="1974">1974</option>
+          <option value="2019">2019</option>
+        </select>
+
+        <form class="search-form">
+          <input class="search-input" type="text" id="search-input" />
+          <button class="seach-button" id="search-button">Search</button>
+        </form>
+
+        <form class="radio-filter">
+          <input
+            class="radio-button"
+            type="radio"
+            id="movies"
+            name="media"
+            value="movies"
+          />
+          <label class="radio-label" for="movies">Movies</label>
+          <input
+            class="radio-button"
+            type="radio"
+            id="books"
+            name="media"
+            value="boks"
+          />
+          <label class="radio-label" for="books">Books</label>
+        </form>
+
+        <!-- <button class="clear-filter">CLEAR FILTERS</button> -->
+      </div>
 
       <div class="media-container" id="media-container"></div>
     </div>
