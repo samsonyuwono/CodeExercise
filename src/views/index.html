@@ -43,34 +43,111 @@
 
     <div class="wrapper">
       <div class="filter-container">
-        <select name="genre" id="genre">
-          <option selected disabled>GENRE</option>
-          <option value="action">Action</option>
-          <option value="adventure">Adventure</option>
-          <option value="crime">Crime</option>
-          <option value="comedy">Comedy</option>
-          <option value="fantasy">Fantasy</option>
-          <option value="horror">Horror</option>
-          <option value="MYSTER">Mystery</option>
-          <option value="sci-fi">Sci-Fi</option>
-          <option value="thriller">Thriller</option>
-          <option value="western">Western</option>
-        </select>
+        <!-- <form>
+          <div class="multiselect">
+            <div class="selectBox">
+              <select>
+                <option value="">GENRE</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+              <label for="action">
+                <input type="checkbox" id="action" />Action</label
+              >
+              <label for="adventure"
+                ><input type="checkbox" id="adventure" />Adventure</label
+              >
+              <label for="crime"
+                ><input type="checkbox" id="crime" />Crime</label
+              >
+              <label for="comedy"
+                ><input type="checkbox" id="comedy" />Comedy</label
+              >
+              <label for="fantasy"
+                ><input type="checkbox" id="fantasy" />fantasy</label
+              >
+              <label for="horror"
+                ><input type="checkbox" id="horror" />Horror</label
+              >
+              <label for="mystery"
+                ><input type="checkbox" id="mystery" />Mystery</label
+              >
+              <label for="sci-fi"
+                ><input type="checkbox" id="sci-fi" />Sci-fi</label
+              >
+              <label for="thriller"
+                ><input type="checkbox" id="thriller" />Thriller</label
+              >
+              <label for="western"
+                ><input type="checkbox" id="Western" />Western</label
+              >
+            </div>
+          </div>
+        </form> -->
 
-        <select name="year" id="year">
-          <option selected disabled>YEAR</option>
-          <option value="1870">1870</option>
-          <option value="1892">1892</option>
-          <option value="1895">1895</option>
-          <option value="1963">1963</option>
-          <option value="1971">1971</option>
-          <option value="1974">1974</option>
-          <option value="2019">2019</option>
-        </select>
+        <!-- <form>
+          <div class="multiselect">
+            <div class="selectBox">
+              <select>
+                <option value="">YEAR</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+              <label for="action">
+                <input type="checkbox" id="1870" />1870</label
+              >
+              <label for="adventure"
+                ><input type="checkbox" id="1892" />1892</label
+              >
+              <label for="crime"><input type="checkbox" id="1895" />1895</label>
+              <label for="comedy"
+                ><input type="checkbox" id="1963" />1963</label
+              >
+              <label for="fantasy"
+                ><input type="checkbox" id="1971" />1971</label
+              >
+              <label for="horror"
+                ><input type="checkbox" id="1974" />1974</label
+              >
+              <label for="mystery"
+                ><input type="checkbox" id="2019" />2019</label
+              >
+            </div>
+          </div>
+        </form> -->
+
+        <div class="dropdown-menu">
+          <select class="dropdown-options" name="genre" id="genre">
+            <option selected disabled>GENRE</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="crime">Crime</option>
+            <option value="comedy">Comedy</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="horror">Horror</option>
+            <option value="MYSTER">Mystery</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="thriller">Thriller</option>
+            <option value="western">Western</option>
+          </select>
+
+          <select name="year" id="year">
+            <option selected disabled>YEAR</option>
+            <option value="1870">1870</option>
+            <option value="1892">1892</option>
+            <option value="1895">1895</option>
+            <option value="1963">1963</option>
+            <option value="1971">1971</option>
+            <option value="1974">1974</option>
+            <option value="2019">2019</option>
+          </select>
+        </div>
 
         <form class="search-form">
           <input class="search-input" type="text" id="search-input" />
-          <button class="seach-button" id="search-button">Search</button>
+          <!-- <button class="seach-button" id="search-button">Search</button> -->
         </form>
 
         <form class="radio-filter">
@@ -79,7 +156,7 @@
             type="radio"
             id="movies"
             name="media"
-            value="movies"
+            value="movie"
           />
           <label class="radio-label" for="movies">Movies</label>
           <input
@@ -87,12 +164,12 @@
             type="radio"
             id="books"
             name="media"
-            value="boks"
+            value="book"
           />
           <label class="radio-label" for="books">Books</label>
         </form>
 
-        <!-- <button class="clear-filter">CLEAR FILTERS</button> -->
+        <button class="clear-filter">CLEAR FILTERS</button>
       </div>
 
       <div class="media-container" id="media-container"></div>

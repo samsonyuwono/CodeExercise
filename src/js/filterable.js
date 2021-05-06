@@ -6,18 +6,12 @@ function buildCorsFreeUrl(target) {
   return `https://cors.bridged.cc/${target}`;
 }
 
-const mediaContainer = document.querySelector("#media-container");
-const searchInput = document.querySelector("#search-input");
 let mediaList;
 let query;
 
-searchInput.addEventListener("change", (event) => {
-  query = event.target.value;
-  console.log(query);
-});
-
+//extract fetch to another file
 function fetchMedia() {
-  let mediaList;
+  // let mediaList;
   const apiUrl =
     "https://hubspotwebteam.github.io/CodeExercise/src/js/data/data.json";
 
@@ -32,18 +26,62 @@ function fetchMedia() {
     .then((data) => {
       mediaList = data.media;
       renderList(mediaList, mediaContainer);
+      searchFilter();
     })
     .catch((error) => {
       console.log(error);
     });
 }
-fetchMedia();
+//fix querySelector vs getElementById
+const mediaContainer = document.querySelector("#media-container");
+// const radioButtons = document.querySelectorAll(".radio-button");
 
-function renderList(list, container) {
+const radioFilter = document.querySelector(".radio-filter");
+
+radioFilter.addEventListener("change", (e) => {
+  console.log(mediaList);
+  let radioFiltered = mediaList.filter((media) => {
+    return media.type == event.target.value;
+  });
+  console.log(radioFiltered);
+  renderList(radioFiltered, mediaContainer);
+});
+
+const searchInput = document.getElementById("search-input");
+let searchQuery = "";
+
+//extract event listeners and consolidate all filters into 1 function
+function searchFilter() {
+  searchInput.addEventListener("input", (e) => {
+    searchQuery = e.target.value;
+    console.log(searchQuery);
+    let filtered = mediaList.filter((media) => {
+      return media.title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    // console.log(searchQuery);
+    renderList(filtered, mediaContainer);
+
+    console.log("filtered", filtered);
+  });
+}
+
+const clearFilter = document.querySelector(".clear-filter");
+
+clearFilter.addEventListener("click", () => {
+  renderList(mediaList, mediaContainer);
+  document.querySelector("#search-input").value = "";
+  document.querySelector(".radio-filter").children[0].checked = false;
+  document.querySelector(".radio-filter").children[2].checked = false;
+});
+
+//extract to another file
+function renderList(list, container, query) {
+  console.log("container", container);
   container.innerHTML = "";
+  console.log("list", list);
   let result = "";
+  console.log(query);
   list.sort((a, b) => (a.title > b.title ? 1 : -1));
-
   list.forEach((media) => {
     result += `<div class="media-card">
                  <img class="media-image" src="${media.poster}" alt=${media.title}/>
@@ -51,21 +89,23 @@ function renderList(list, container) {
                   <p class="media-genre">Genres: ${media.genre}</p>
                </div>`;
   });
+
   container.innerHTML = result;
 }
 
-let radioButtons = document.querySelectorAll(".radio-button");
+fetchMedia();
 
-function fillContainer() {}
+// let expanded = false;
+// console.log(expanded);
+// function showCheckboxes() {
+//   let checkboxes = document.getElementById("checkboxes");
+//   if (!expanded) {
+//     checkboxes.style.display = "block";
+//     expanded = true;
+//   } else {
+//     checkboxes.style.display = "none";
+//     expanded = false;
+//   }
+// }
 
-// console.log(radioButtons);
-
-radioButtons.forEach((btn) => {
-  btn.addEventListenerListener("click", renderList);
-});
-
-// document.querySelector(".books").addEventListener("change", () => {
-//   alert("checked books");
-// });
-
-function filterType(type) {}
+// showCheckboxes();
