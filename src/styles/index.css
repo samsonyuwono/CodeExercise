@@ -182,8 +182,6 @@ body {
   padding: 0.5rem 1rem;
 }
 
-/* end dropdown */
-
 .search-form {
   display: flex;
   align-self: center;
@@ -200,11 +198,6 @@ body {
   min-width: 200px;
   height: 30px;
   width: 15%;
-}
-
-.radio-filter {
-  /* display: flex;
-  margin: 0 2rem; */
 }
 
 .radio-label {

@@ -33,15 +33,15 @@ function fetchMedia() {
     });
 }
 
+fetchMedia();
+
 const radioFilter = document.querySelector(".radio-filter");
 
 function radioButtonFilter() {
   radioFilter.addEventListener("change", (e) => {
-    console.log(mediaList);
     let radioFiltered = mediaList.filter((media) => {
       return media.type == event.target.value;
     });
-    console.log(radioFiltered);
     renderList(radioFiltered, mediaContainer);
   });
 }
@@ -52,7 +52,7 @@ let searchQuery = "";
 function searchFilter() {
   searchInput.addEventListener("input", (e) => {
     searchQuery = e.target.value;
-    console.log(searchQuery);
+
     let searchFiltered = mediaList.filter((media) => {
       return media.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
@@ -93,7 +93,7 @@ function grabCheckboxValues() {
     if (checkbox.checked) selectedGenres = [...selectedGenres, checkbox.value];
   });
   selectedGenres = [...new Set(selectedGenres)];
-  console.log(selectedGenres);
+
   return selectedGenres;
 }
 
@@ -104,7 +104,6 @@ function genreFilter() {
     let result = (arr, target) => target.every((v) => arr.includes(v));
     return result(genres, selectedGenres);
   });
-
   renderList(genreFiltered, mediaContainer);
 }
 
@@ -116,7 +115,7 @@ function clearAllFilters() {
     searchInput.value = "";
     radioFilter.children[0].checked = false;
     radioFilter.children[2].checked = false;
-    getCheckboxes();
+    getCheckboxes(); // the removal of checkboxes needs to be fixed
     selectedGenres = [];
   });
 }
@@ -136,5 +135,3 @@ function renderList(list, container) {
 
   container.innerHTML = result;
 }
-
-fetchMedia();
