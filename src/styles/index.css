@@ -4,11 +4,11 @@ body {
 }
 
 .exercise-header {
-  padding: 1rem 0;
-  margin: 2rem 0;
-  text-align: center;
-  color: #fff;
   background-color: #00a4bd;
+  color: #fff;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 .testimonial-wrapper {
@@ -103,77 +103,108 @@ body {
 /* exercise 2 */
 .wrapper {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
-.dropdown-menu {
-  margin: 0 0.5rem;
+.filter-container {
+  border: 1px solid #cecece;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 85%;
 }
 
-.multiselect {
+.genre-filter {
+  cursor: pointer;
+}
+
+.filter-container > * {
+  margin: 1rem 0;
+  flex: 0 0 35%;
+}
+
+.multi-select {
   width: 200px;
 }
-.selectBox {
+
+.select-box {
   position: relative;
 }
-.selectBox select {
+
+.select-box select {
+  cursor: pointer;
   width: 100%;
   font-weight: bold;
 }
 
-.overSelect {
+.over-select {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
 }
 
-#checkboxes {
+.checkboxes {
   display: none;
-  border: 1px #dadada solid;
+  border: 1px solid #dadada;
+  position: absolute;
+  width: 198px;
+  background-color: #fff;
 }
-#checkboxes label {
+
+.checkboxes label {
+  border: 1px solid #cecece;
+  cursor: pointer;
   display: block;
+  font-weight: 600;
+  color: #737373;
+  padding: 1rem 0;
 }
-#checkboxes label:hover {
+
+.checkboxes label:hover {
   background-color: #1e90ff;
 }
 
+.select {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #595756;
+  width: 100%;
+  font-weight: bold;
+  color: #737373;
+  font-size: 17px;
+  padding: 0.5rem 1rem;
+}
+
+/* end dropdown */
+
 .search-form {
   display: flex;
-  margin: 0 2rem;
+  align-self: center;
   justify-content: flex-end;
 }
 
 .search-input {
-  border: 1px solid #ccc;
-  height: 2em;
-  width: 15%;
-  height: 30px;
-  font-size: 14px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
   background-position: right center;
-}
-
-.search-input:focus {
-  transition: all 0.5s;
-  box-shadow: 0 0 40px #f9d442b9;
-  border-color: #f9d342;
-  outline: none;
-}
-
-.filter-container {
-  border: 2px solid red;
-  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  height: 2em;
+  min-width: 200px;
+  height: 30px;
+  width: 15%;
 }
 
 .radio-filter {
-  display: flex;
-  margin: 0 2rem;
+  /* display: flex;
+  margin: 0 2rem; */
 }
 
 .radio-label {
@@ -182,18 +213,15 @@ body {
 }
 
 .clear-filter {
-  justify-content: flex-end;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 13px;
   background: transparent;
   border: none;
-  color: blue;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-
   color: #20a8e6;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: right;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .media-container {
@@ -202,25 +230,19 @@ body {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 2rem;
   text-align: center;
-  justify-content: center;
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  text-align: center; */
 }
 
 .media-card {
   /* border: 2px solid red; */
-  flex: 0 0 29.333333%;
-  width: 30%;
+  flex: 0 1 29.333333%;
+  width: 15%;
   display: block;
   margin: 10px;
   padding: 5px;
-  height: 580px;
+  height: auto;
 }
 
 .media-image {
@@ -262,5 +284,23 @@ body {
 
   .blue-button {
     font-size: 9px;
+  }
+
+  .filter-container {
+    align-content: center;
+    flex-direction: row;
+    width: 75%;
+  }
+
+  .clear-filter {
+    text-align: left;
+  }
+
+  .media-container {
+    margin: 0 1rem;
+  }
+
+  .media-card {
+    flex: 0 1 50.333333%;
   }
 }
