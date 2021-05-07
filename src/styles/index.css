@@ -290,7 +290,10 @@ body {
   .media-container {
     margin: 0 1rem;
   }
+}
 
+@media screen and (max-device-width: 767px) and (orientation: portrait),
+  (max-device-height: 375px) and (orientation: portrait) {
   .media-card {
     flex: 0 1 50.333333%;
   }
