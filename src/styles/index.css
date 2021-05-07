@@ -294,6 +294,15 @@ body {
 
 @media screen and (max-device-width: 767px) and (orientation: portrait),
   (max-device-height: 375px) and (orientation: portrait) {
+  .testimonial-content {
+    flex: 2 1 60%;
+  }
+
+  .blue-button {
+    flex: 1 1 40%;
+    padding: 0.75rem;
+  }
+
   .media-card {
     flex: 0 1 50.333333%;
   }
